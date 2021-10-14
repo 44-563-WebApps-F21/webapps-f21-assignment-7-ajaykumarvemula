@@ -2,115 +2,169 @@
 <html lang="en">
 
 <head>
-    <title>JavaScript Assignment2</title>
+    <title>Animal hunt</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        let ids = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24",];
+        let triesCount = 0;
+        let foxLocation = 13;
+        function reset() {
+            triesCount = 0;
+            foxLocation = Math.round(Math.random() * (23 - 0) + 0);
+            document.getElementById("tries").innerHTML = triesCount;
+            distanceOffox = "unknown"
+            document.getElementById("distance").innerHTML = distanceOfAnimal;
+            for (var i = 0; i < 24; i++) {
+
+                document.getElementById(ids[i]).src = "Tree.jpg";
+            }
+        }
+        function check(x) {
+            if (x == foxLocation) {
+                document.getElementById(ids[x]).src = "fox.jpg";
+                triesCount++;
+                document.getElementById("tries").innerHTML = triesCount;
+                document.getElementById("distance").innerHTML = distance(x, foxLocation);
+
+            }
+            else {
+                document.getElementById(ids[x]).src = "dirt.jpg";
+                triesCount++;
+                document.getElementById("tries").innerHTML = triesCount;
+                document.getElementById("distance").innerHTML = distance(x, foxLocation);
+            }
+        }
+        function distance(pos1, pos2) {
+            var columm = 6;
+            var valueToaddsub = pos1 <= foxLocation ? columm : -columm;
+            var verticalDist = 0;
+            var horizantalDist = 0;
+            var minRange = Math.abs(foxLocation / columm) * columm;
+            var maxRange = minRange + (columm)
+            while (true) {
+                Math.abs(foxLocation - pos1)
+                if (minRange <= pos1 && pos1 < maxRange) {
+                    horizantalDist = Math.abs(animalLocation - pos1);
+                    break;
+                }
+                else {
+                    pos1 = pos1 + valueToaddsub;
+                    verticalDist = verticalDist + 1;
+                }
+            }
+            return Math.max(verticalDist, horizantalDist);
+        }
+        // function distance(pos1, pos2) {
+        //     var x = pos1;
+        //     console.log(x);
+        //     var y = pos2;
+        //     console.log(y);
+        //     if (x >= 0 && x <= 5) {
+        //         var dist = Math.max(Math.abs(2 - 0) , Math.abs(1 - x));
+        //         console.log(dist);
+        //     }
+        //     else if (x >= 6 && x <= 11) {
+        //         var dist = Math.max(Math.abs(2 - 1) , Math.abs(1 - (x % 6)));
+        //         console.log(dist)
+        //     }
+        //     else if (x >= 12 && x <= 17) {
+        //         var dist = Math.max(Math.abs(2 - 2) , Math.abs(1 - (x % 12)));
+        //         console.log(dist);
+        //     }
+        //     else if (x >= 18 && x <= 23) {
+        //         var dist = Math.max(Math.abs(2 - 3) , Math.abs(1 - (x % 18)));
+        //         console.log(dist);
+        //     }
+        //     return dist ;
+        // }
+    </script>
+
+
 </head>
 
 <body>
-
-    <div class="container-fluid">
-        <h1 class="h1" style="color: #8200d9;">Animal hunt Ajay Kumar Vemula</h1>
-        <div class="lead" style="color:rgb(209, 197, 205)">Click the square to search for wild life</div>
-        <div id="tries" class="lead" style="color:tomato">Number of tries is zero</div>
-        <div id="distance" class="lead" style="color:mediumaquamarine;">Distance is unknown</div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+    <div class="container">
+        <h2 class="text-center fst-italic">Ajay Kumar Vemula <small id="full"> Animal hunt</small>
+        </h2>
+        <div class="container">
+            <p class="fw-bolder text-decoration-underline">Click on the squares to search for wild life</p>
+            <p class="fw-bolder badge bg-primary text-wrap col-12"
+                style="width: 18rem; line-height:1.5; font-size: 1em;">Number of tries is: <span id="tries"></span></p>
+            <br>
+            <p class="fw-bold badge bg-warning text-wrap col-12" style="width: 18rem; line-height:1.5; font-size: 1em;">
+                Distance is: <span id="distance"></span></p><br>
+            <p class="fw-bold badge bg-dark text-wrap col-12" style="width: 18rem; line-height:1.5; font-size: 1em;" onclick="reset()">
+                Reset</p>
+        </div><br>
+        <div class="container row">
+            <div class="col"><img class="rounded" id="img1" onclick="check(0)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img2" onclick="check(1)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img3" onclick="check(2)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img4" onclick="check(3)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img5" onclick="check(4)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img6" onclick="check(5)" src="Tree.jpg" width="154" height="154">
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+        <div class="container row">
+            <div class="col"><img class="rounded" id="img7" onclick="check(6)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img8" onclick="check(7)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img9" onclick="check(8)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
+            <div class="col"><img class="rounded" id="img10" onclick="check(9)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
+            <div class="col"><img class="rounded" id="img11" onclick="check(10)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img12" onclick="check(11)" src="Tree.jpg" width="154"
+                    height="154"></div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-            <div class="col">
-                <img src="Tree.jpg" height="200" width="200">
-            </div>
-        </div>        
+        <div class="container row">
+            <div class="col"><img class="rounded" id="img13" onclick="check(12)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img14" onclick="check(13)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img15" onclick="check(14)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img16" onclick="check(15)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img17" onclick="check(16)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img18" onclick="check(17)" src="Tree.jpg" width="154"
+                    height="154"></div>
+        </div>
+        <div class="container row">
+            <div class="col"><img class="rounded" id="img19" onclick="check(18)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img20" onclick="check(19)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img21" onclick="check(20)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img22" onclick="check(21)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img23" onclick="check(22)" src="Tree.jpg" width="154"
+                    height="154"></div>
+            <div class="col"><img class="rounded" id="img24" onclick="check(23)" src="Tree.jpg" width="154"
+                    height="154"></div>
+        </div><br>
+        <a href="stack.html" class="link-danger" id="full">Stack Page</a><br>
+        <a href="reaction.html" class="link-warning" id="full">Reaction Page</a>
     </div>
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
