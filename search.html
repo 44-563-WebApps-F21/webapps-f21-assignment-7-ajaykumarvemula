@@ -13,10 +13,10 @@
     <script>
         let ids = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24",];
         let triesCount = 0;
-        let foxLocation = 13;
+        let animalLocation = 13;
         function newgame() {
             triesCount = 0;
-            foxLocation = Math.round(Math.random() * (23 - 0) + 0);
+            animalLocation = Math.round(Math.random() * (23 - 0) + 0);
             document.getElementById("tries").innerHTML = triesCount;
             distanceOfAnimal = "unknown"
             document.getElementById("distance").innerHTML = distanceOfAnimal;
@@ -26,7 +26,7 @@
             }
         }
         function check(x) {
-            if (x == foxLocation) {
+            if (x == animalLocation) {
                 document.getElementById(ids[x]).src = "fox.jpg";
                 triesCount++;
                 document.getElementById("tries").innerHTML = triesCount;
@@ -81,7 +81,7 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center fst-italic">Ajay Kumar Vemula <small id="full"> Animal hunt</small>
+        <h2 class="text-center fst-italic">Ajay kumar Vemula <small id="full"> Animal hunt</small>
         </h2>
         <div class="container">
             <p class="fw-bolder text-decoration-underline">Click on the squares to search for wild life</p>
