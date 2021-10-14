@@ -13,28 +13,28 @@
     <script>
         let ids = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24",];
         let triesCount = 0;
-        let animalLocation = 13;
+        let foxLocation = 13;
         function newgame() {
             triesCount = 0;
-            animalLocation = Math.round(Math.random() * (23 - 0) + 0);
+            foxLocation = Math.round(Math.random() * (23 - 0) + 0);
             document.getElementById("tries").innerHTML = triesCount;
             distanceOfAnimal = "unknown"
             document.getElementById("distance").innerHTML = distanceOfAnimal;
             for (var i = 0; i < 24; i++) {
 
-                document.getElementById(ids[i]).src = "bush.png";
+                document.getElementById(ids[i]).src = "Tree.jpg";
             }
         }
         function check(x) {
-            if (x == animalLocation) {
-                document.getElementById(ids[x]).src = "animal.png";
+            if (x == foxLocation) {
+                document.getElementById(ids[x]).src = "fox.jpg";
                 triesCount++;
                 document.getElementById("tries").innerHTML = triesCount;
                 document.getElementById("distance").innerHTML = distance(x, animalLocation);
 
             }
             else {
-                document.getElementById(ids[x]).src = "dirt.png";
+                document.getElementById(ids[x]).src = "dirt.jpg";
                 triesCount++;
                 document.getElementById("tries").innerHTML = triesCount;
                 document.getElementById("distance").innerHTML = distance(x, animalLocation);
@@ -94,59 +94,59 @@
                 New Game</p>
         </div><br>
         <div class="container row">
-            <div class="col"><img class="rounded" id="img1" onclick="check(0)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img1" onclick="check(0)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img2" onclick="check(1)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img2" onclick="check(1)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img3" onclick="check(2)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img3" onclick="check(2)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img4" onclick="check(3)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img4" onclick="check(3)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img5" onclick="check(4)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img5" onclick="check(4)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img6" onclick="check(5)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img6" onclick="check(5)" src="Tree.jpg" width="154" height="154">
             </div>
         </div>
         <div class="container row">
-            <div class="col"><img class="rounded" id="img7" onclick="check(6)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img7" onclick="check(6)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img8" onclick="check(7)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img8" onclick="check(7)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img9" onclick="check(8)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img9" onclick="check(8)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img10" onclick="check(9)" src="bush.png" width="154" height="154">
+            <div class="col"><img class="rounded" id="img10" onclick="check(9)" src="Tree.jpg" width="154" height="154">
             </div>
-            <div class="col"><img class="rounded" id="img11" onclick="check(10)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img11" onclick="check(10)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img12" onclick="check(11)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img12" onclick="check(11)" src="Tree.jpg" width="154"
                     height="154"></div>
         </div>
         <div class="container row">
-            <div class="col"><img class="rounded" id="img13" onclick="check(12)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img13" onclick="check(12)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img14" onclick="check(13)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img14" onclick="check(13)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img15" onclick="check(14)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img15" onclick="check(14)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img16" onclick="check(15)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img16" onclick="check(15)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img17" onclick="check(16)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img17" onclick="check(16)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img18" onclick="check(17)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img18" onclick="check(17)" src="Tree.jpg" width="154"
                     height="154"></div>
         </div>
         <div class="container row">
-            <div class="col"><img class="rounded" id="img19" onclick="check(18)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img19" onclick="check(18)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img20" onclick="check(19)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img20" onclick="check(19)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img21" onclick="check(20)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img21" onclick="check(20)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img22" onclick="check(21)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img22" onclick="check(21)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img23" onclick="check(22)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img23" onclick="check(22)" src="Tree.jpg" width="154"
                     height="154"></div>
-            <div class="col"><img class="rounded" id="img24" onclick="check(23)" src="bush.png" width="154"
+            <div class="col"><img class="rounded" id="img24" onclick="check(23)" src="Tree.jpg" width="154"
                     height="154"></div>
         </div><br>
         <a href="stack.html" class="link-danger" id="full">Stack Page</a><br>
