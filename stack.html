@@ -90,6 +90,30 @@
         }
     </script>
 
+    <script>
+        function uniqueHandler(){
+
+let stackItems = document.getElementsByClassName('stack');
+for (let index = 0; index < stackItems.length; index++) {
+        let element = stackItems[index].innerHTML;
+        for (let insideIndex = index+1; insideIndex < stackItems.length; insideIndex++) {
+            let elementInside = stackItems[insideIndex].innerHTML;
+
+            if (element == elementInside) {
+            console.log(stackItems[insideIndex])
+            stackItems[index].remove();
+            insideIndex--;
+            index--;
+        }
+
+            
+        }
+        
+    }
+
+}
+    </script>
+
 </head>
 
 <body>
@@ -114,11 +138,14 @@
         <button onclick="zap()" type="button" class="btn btn-outline-warning">Zap values</button>
         <button onclick="uniqueHandler()" type="button" class="btn btn-outline-dark">Unique</button>
         <br>
-       
+        <a href="search.html" class="link-danger" id="full">Search Page</a><br>
+        <a href="reaction.html" class="link-warning" id="full">Reaction Page</a>
+
+      
 
     </div>
 
-
+  
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
